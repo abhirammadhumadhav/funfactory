@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "54450622051",
+    "project_id": "funfactory-cddad",
+    "storage_bucket": "funfactory-cddad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54450622051:android:d3af56e2bb0b91a35ef256",
+        "android_client_info": {
+          "package_name": "com.example.funfactory"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "54450622051-t0bun38f2u2883t7odt0crv3feddbafm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.funfactory",
+            "certificate_hash": "90af422ac4cb9d93c2e6b2eb1777a980acfb137a"
+          }
+        },
+        {
+          "client_id": "54450622051-6em2rai03015ptvjcsk6bqqidmv131a6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARPiMyJ3X19nIo3ONSss5NCfHqm0L6q3A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "54450622051-6em2rai03015ptvjcsk6bqqidmv131a6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
