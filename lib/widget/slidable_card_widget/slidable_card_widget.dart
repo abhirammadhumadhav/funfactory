@@ -2,17 +2,17 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class SlidableCardWidget extends StatelessWidget {
-  const SlidableCardWidget({
+   SlidableCardWidget({
     super.key,
     required this.width,
     required double page,
-    required this.pageController,
+    required this.pageController,required this.imageurl,
   }) : _page = page;
-
+   List<dynamic>imageurl;
   final double width;
   final double _page;
   final PageController pageController;
-
+  
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -26,7 +26,7 @@ class SlidableCardWidget extends StatelessWidget {
               builder: (context, boxConstraints) {
                 List<Widget> cards = [];
 
-                for (int i = 0; i <= 11; i++) {
+                for (int i = 0; i < imageurl.length; i++) {
                   double currentPageValue = i - _page;
                   bool pageLocation = currentPageValue > 0;
 
@@ -44,9 +44,11 @@ class SlidableCardWidget extends StatelessWidget {
                     start: start,
                     textDirection: TextDirection.ltr,
                     child: Container(
+                      
                       height: width * .67,
                       width: width * .67,
                       alignment: Alignment.center,
+                      
                       decoration: BoxDecoration(
                           color: Colors.teal,
                           borderRadius: BorderRadius.circular(20),
@@ -55,8 +57,12 @@ class SlidableCardWidget extends StatelessWidget {
                                 color: Colors.black.withOpacity(.15),
                                 blurRadius: 10)
                           ]),
-                      child: Image.asset(
-                        "lib/asset/tom-5158824_1280.webp",
+                         
+                      child:
+                       
+                       Image.network(
+                        
+                       imageurl[i],
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -71,9 +77,10 @@ class SlidableCardWidget extends StatelessWidget {
             child: PageView.builder(
               physics: const BouncingScrollPhysics(
                   parent: AlwaysScrollableScrollPhysics()),
-              itemCount: 11,
+              itemCount: imageurl.length,
               controller: pageController,
               itemBuilder: (context, index) {
+                 
                 return const SizedBox();
               },
             ),

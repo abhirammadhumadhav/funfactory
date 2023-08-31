@@ -1,17 +1,10 @@
-// ignore_for_file: library_private_types_in_public_api, non_constant_identifier_names
-
-
-
 import 'dart:developer';
-
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:funfactory/main.dart';
 import 'package:funfactory/presentation/signup_screen/screen/sign_up_screen.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import '../home_screen/home_screen.dart';
@@ -21,11 +14,11 @@ class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  LoginScreenState createState() => LoginScreenState();
 }
 
   
-class _LoginScreenState extends State<LoginScreen> {
+class LoginScreenState extends State<LoginScreen> {
    GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -179,7 +172,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                              ).then((value) {
                                              
                                               Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context){
-                                                return HomeScreen();
+                                                return  HomeScreen();
                                               }), (route) => false);
                                             //    Navigator.push(
                                             //   context,
@@ -219,7 +212,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                          await signInWithGoogle();
                                         // ignore: use_build_context_synchronously
                                         Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context){
-                                                return HomeScreen();
+                                                return  HomeScreen();
                                               }), (route) => false);
                                         // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context){
                                         //   return HomeScreen();
@@ -256,7 +249,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      SignUpScreen()),
+                                                      const SignUpScreen()),
                                             );
                                           },
                                           child: RichText(
@@ -272,7 +265,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                     context,
                                                     MaterialPageRoute(
                                                         builder: (context) =>
-                                                            SignUpScreen()),
+                                                            const SignUpScreen()),
                                                   );
                                                 },
                                             ),

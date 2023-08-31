@@ -8,7 +8,7 @@ class InputAddressFormField extends StatelessWidget {
   });
 
   final Size size;
-  final title;
+  final dynamic title;
 
   @override
   Widget build(BuildContext context) {

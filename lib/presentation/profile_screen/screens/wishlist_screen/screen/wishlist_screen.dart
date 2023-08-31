@@ -12,7 +12,7 @@ class WishlistScreen extends StatelessWidget {
   final int columnCount;
   @override
   Widget build(BuildContext context) {
-    double _width = MediaQuery.of(context).size.width;
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         flexibleSpace: Center(
@@ -43,9 +43,9 @@ class WishlistScreen extends StatelessWidget {
           )),
         ),
         actions: [
-          Container(
-            height: _width / 3.7,
-            width: _width / 3.7,
+          SizedBox(
+            height: width / 3.7,
+            width: width / 3.7,
             child: Animator<double>(
               duration: const Duration(milliseconds: 1000),
               cycles: 0,

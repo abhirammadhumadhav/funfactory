@@ -35,10 +35,10 @@ class WishlistGridWidget extends StatelessWidget {
                   child: FadeInAnimation(
                       child: InkWell(
                     onTap: () {
-                      Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (ctx) {
-                        return ProductDetailsScreen();
-                      }));
+                      // Navigator.of(context)
+                      //     .push(MaterialPageRoute(builder: (ctx) {
+                      //   return  ProductDetailsScreen();
+                      // }));
                     },
                     child: Container(
                       decoration: const BoxDecoration(
@@ -65,7 +65,7 @@ class WishlistGridWidget extends StatelessWidget {
                               ],
                             ),
                           ),
-                          Positioned(
+                          const Positioned(
                             top: 10,
                             right: 10,
                             child: AnimatedFavoriteIcon(),

@@ -6,7 +6,7 @@ import 'active_orders.dart';
 import 'complete_orders.dart';
 
 class MyOrdersScreen extends StatelessWidget {
-  final pageIndex;
+  final dynamic pageIndex;
   const MyOrdersScreen({super.key, this.pageIndex});
 
   @override

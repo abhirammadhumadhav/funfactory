@@ -48,7 +48,7 @@ class BottomNavBar extends StatelessWidget {
                     onPressed: () {
                       Navigator.of(context)
                           .push(MaterialPageRoute(builder: (ctx) {
-                        return HomeScreen();
+                        return  HomeScreen();
                       }));
                       // setState(() {
                       //   selectedIndex = 0;
@@ -87,7 +87,7 @@ class BottomNavBar extends StatelessWidget {
                       log('<<<,,,,,,,,,,,,>>>');
                       Navigator.of(context)
                           .push(MaterialPageRoute(builder: (ctx) {
-                        return CartScreen();
+                        return const CartScreen();
                       }));
                       // setState(() {
                       //   selectedIndex = 2;
@@ -125,7 +125,7 @@ class BottomNavBar extends StatelessWidget {
 class MyPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    Paint paint = new Paint()
+    Paint paint = Paint()
       ..color = Colors.orange
       ..style = PaintingStyle.fill;
 
@@ -139,6 +139,7 @@ class MyPainter extends CustomPainter {
   }
 
   // @override
+  @override
   bool shouldRepaint(CustomPainter oldDelegate) {
     return false;
   }

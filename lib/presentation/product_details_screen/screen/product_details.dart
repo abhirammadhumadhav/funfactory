@@ -1,18 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:funfactory/domain/model/product.dart';
 import '../widget/add_to_cart_button.dart';
 import '../../../widget/expandable_widget/expandable_widget.dart';
 import '../../../widget/slidable_card_widget/slidable_card_widget.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
+  final Product data;
+  const ProductDetailsScreen({super.key, required this.data});
+
   @override
-  _ProductDetailsScreenState createState() => new _ProductDetailsScreenState();
+  ProductDetailsScreenState createState() => ProductDetailsScreenState();
 }
 
-class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
+class ProductDetailsScreenState extends State<ProductDetailsScreen> {
   double _page = 10;
-
+  List<dynamic> image_urls = [];
+  String? productname;
+  String? productid;
   @override
   Widget build(BuildContext context) {
+
+    image_urls = widget.data.imageUrl;
+    productname = widget.data.name;
+    productid = widget.data.id;
     double width = MediaQuery.of(context).size.width;
     PageController pageController;
     pageController = PageController(initialPage: 10);
@@ -32,15 +42,15 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: SlidableCardWidget(
-                width: width, page: _page, pageController: pageController),
+                width: width, page: _page, pageController: pageController,imageurl:image_urls ,),
           ),
-          Flexible(fit: FlexFit.loose, child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ExpandableWidget(),
-          )),
-          const Padding(
+           Flexible(fit: FlexFit.loose, child: Padding(
             padding: EdgeInsets.all(8.0),
-            child: AddToCartButtonWidget(),
+            child: ExpandableWidget(productname: productname,),
+          )),
+           Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: AddToCartButtonWidget(productid),
           )
         ],
       ),

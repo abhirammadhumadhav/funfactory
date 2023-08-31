@@ -7,7 +7,7 @@ class AddressFieldWidget extends StatelessWidget {
   });
 
   final Size size;
-  final trailbtn;
+  final dynamic trailbtn;
 
   @override
   Widget build(BuildContext context) {

@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 
 
 class MyCustomWidget extends StatefulWidget {
+  const MyCustomWidget({super.key});
+
   @override
-  _MyCustomWidgetState createState() => _MyCustomWidgetState();
+  MyCustomWidgetState createState() => MyCustomWidgetState();
 }
 
-class _MyCustomWidgetState extends State<MyCustomWidget> {
+class MyCustomWidgetState extends State<MyCustomWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,8 +19,8 @@ class _MyCustomWidgetState extends State<MyCustomWidget> {
           animatedTexts: [
             TypewriterAnimatedText(
               'animated text kit',
-              speed: Duration(milliseconds: 150),
-              textStyle: TextStyle(
+              speed: const Duration(milliseconds: 150),
+              textStyle: const TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
               ),

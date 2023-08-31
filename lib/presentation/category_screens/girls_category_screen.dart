@@ -6,12 +6,12 @@ class GirlsCategoryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _w = MediaQuery.of(context).size.width;
+    double w = MediaQuery.of(context).size.width;
     int columnCount = 2;
     return Scaffold(
       body: Column(
         children: [
-          AnimatedGridWidget(w: _w, columnCount: columnCount),
+          AnimatedGridWidget(w: w, columnCount: columnCount,category: 'Girls',),
         ],
       ),
     );

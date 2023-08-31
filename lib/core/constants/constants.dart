@@ -1,3 +1,3 @@
 import 'package:flutter/material.dart';
 
-final sdbx =   SizedBox(height: 15,);
+const sdbx =   SizedBox(height: 15,);

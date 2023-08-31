@@ -7,9 +7,11 @@ import '../../../widget/bottomnavbar/bottom_nav_bar.dart';
 import '../widget/checkout_elevatedbutton.dart';
 
 class CartScreen extends StatelessWidget {
+  const CartScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
-    double _w = MediaQuery.of(context).size.width;
+    double w = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         flexibleSpace: Center(
@@ -39,16 +41,16 @@ class CartScreen extends StatelessWidget {
             ),
           )),
         ),
-        actions: [
+        actions: const [
           Padding(
-            padding: const EdgeInsets.only(right: 10),
+            padding: EdgeInsets.only(right: 10),
             child: AnimatedCartButtonWidget(),
           )
         ],
       ),
       body: Column(
         children: [
-          Expanded(child: AnimatedListviewWidget(w: _w)),
+         Expanded(child: AnimatedListviewWidget(w: w)),
           const Padding(
             padding: EdgeInsets.all(10.0),
             child: Row(

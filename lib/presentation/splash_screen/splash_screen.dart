@@ -22,19 +22,19 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
   }
   void startTimer(){
-    Timer(Duration(seconds: 3), () { 
+    Timer(const Duration(seconds: 3), () { 
      navigateUser();
     });
   }
   void navigateUser(){
   if(FirebaseAuth.instance.currentUser != null){
    Navigator.of(context).push(MaterialPageRoute(builder: (context){
-    return HomeScreen();
+    return  HomeScreen();
    }));
   }
   else{
     Navigator.of(context).push(MaterialPageRoute(builder: (context){
-    return LoginScreen();
+    return const LoginScreen();
    }));
   }
   }
@@ -47,9 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: SizedBox(
           width: 200,
           height: 80,
-          child: Container(
-            child: Image.asset('lib/asset/image 1 (2).png'),
-          ),
+          child: Image.asset('lib/asset/image 1 (2).png'),
         ),
       ),
     );
@@ -63,7 +61,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Future<void> gotoHome() async {
     await Future.delayed(const Duration(seconds: 3));
     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx) {
-      return LoginScreen();
+      return const LoginScreen();
     }));
   }
 }

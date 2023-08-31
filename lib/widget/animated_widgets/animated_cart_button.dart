@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AnimatedCartButtonWidget extends StatefulWidget {
+  const AnimatedCartButtonWidget({super.key});
+
   @override
   AnimatedCartButtonWidgetState createState() =>
       AnimatedCartButtonWidgetState();

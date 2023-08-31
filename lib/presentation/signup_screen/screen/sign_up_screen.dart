@@ -6,15 +6,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
 import 'dart:ui';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:funfactory/presentation/signup_screen/sign_up_function/sign_up_function.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 import '../../home_screen/home_screen.dart';
 import '../../login_screen/login_page.dart';
 
 class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _SignUpScreenState createState() => _SignUpScreenState();
 }
 
@@ -238,12 +239,12 @@ class _SignUpScreenState extends State<SignUpScreen>
                                  password: passwordcontroller.text,
                              
                                  ).then((value){
-                                  print('SignUp');
+                                 // print('SignUp');
                                   Navigator.of(context).push(MaterialPageRoute(builder: (ctx){
-                                return HomeScreen();
+                                return  HomeScreen();
                               }));
                                  }).onError((error, stackTrace) {
-                                  print("Error ${error.toString()}");
+                                 // print("Error ${error.toString()}");
                                  });
                               // Fluttertoast.showToast(
                               //     msg: 'Create a new account button pressed');
@@ -275,7 +276,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => LoginScreen()),
+                                    builder: (context) => const LoginScreen()),
                               );
                             },
                             child: RichText(
@@ -289,7 +290,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => LoginScreen()),
+                                          builder: (context) => const LoginScreen()),
                                     );
                                   },
                               ),

@@ -31,6 +31,21 @@ class AnimatedListviewWidget extends StatelessWidget {
                 curve: Curves.fastLinearToSlowEaseIn,
                 flipAxis: FlipAxis.y,
                 child: Container(
+                  margin: EdgeInsets.only(bottom: _w / 20),
+                  height: _w / 3.5,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.1),
+                        blurRadius: 40,
+                        spreadRadius: 10,
+                      ),
+                    ],
+                  ),
                   child: ListTile(
                     leading: Padding(
                       padding: const EdgeInsets.all(8),
@@ -64,21 +79,6 @@ class AnimatedListviewWidget extends StatelessWidget {
                           Icons.delete_sweep_outlined,
                           color: Colors.grey,
                         )),
-                  ),
-                  margin: EdgeInsets.only(bottom: _w / 20),
-                  height: _w / 3.5,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(20),
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
-                        blurRadius: 40,
-                        spreadRadius: 10,
-                      ),
-                    ],
                   ),
                 ),
               ),

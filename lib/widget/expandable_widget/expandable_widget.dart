@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ExpandableWidget extends StatefulWidget {
+   ExpandableWidget({super.key,required this.productname});
+  String? productname;
   @override
   ExpandableWidgetState createState() => ExpandableWidgetState();
 }
@@ -58,9 +60,9 @@ class ExpandableWidgetState extends State<ExpandableWidget> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Text(
-                              'Product Name',
-                              style: TextStyle(
+                             Text(
+                             widget.productname?? '',
+                              style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 22,
                                   fontWeight: FontWeight.w400),
@@ -81,13 +83,20 @@ class ExpandableWidgetState extends State<ExpandableWidget> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Text(
-                              'Product Name',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w400),
+                             Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                               children: [
+                                 Text(
+                                  widget.productname??'',
+                                  style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 22,
+                                      fontWeight: FontWeight.w400),
                             ),
+                            Text('₹599',
+                            style: TextStyle(color: Colors.yellow,fontSize: 22,fontWeight: FontWeight.bold),)
+                               ],
+                             ),
                             Icon(
                               isTapped
                                   ? Icons.keyboard_arrow_down

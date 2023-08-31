@@ -1,6 +1,7 @@
 import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:funfactory/presentation/search_screen/search_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../widget/bottomnavbar/bottom_nav_bar.dart';
 import 'all_screen.dart';
@@ -14,6 +15,7 @@ class CategoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextEditingController textcontroller = TextEditingController();
+    double w = MediaQuery.of(context).size.width;
     final kTabPages = <Widget>[
       const AllScreen(),
       const BoysCtaegoryScreen(),
@@ -76,8 +78,14 @@ class CategoryScreen extends StatelessWidget {
                 child: AnimSearchBar(
                   width: 400,
                   textController: textcontroller,
-                  onSuffixTap: () {},
-                  onSubmitted: (p0) => const SizedBox(),
+                  onSuffixTap: () {
+                    textcontroller.clear();
+                  },
+                  onSubmitted: (query){
+                    return Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                      return SearchScreen(w: w, searchQuery: query);
+                    }));
+                  },
                   animationDurationInMilli: 500,
                   color: const Color.fromARGB(255, 237, 187, 4),
                   closeSearchOnSuffixTap: true,

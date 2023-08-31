@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AnimatedFavoriteIcon extends StatefulWidget {
+  const AnimatedFavoriteIcon({super.key});
+
   @override
   AnimatedFavoriteIconState createState() => AnimatedFavoriteIconState();
 }
