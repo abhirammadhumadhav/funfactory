@@ -19,12 +19,21 @@ class AnimatedListviewWidget extends StatefulWidget {
 
 class _AnimatedListviewWidgetState extends State<AnimatedListviewWidget> {
   late Future<Map<String,dynamic>?>productData;
+  
   @override
   void initState() {
     
     super.initState();
     productData = getCartData();
   }
+  Future<void> refreshCartData()async{
+    setState(() {
+      productData = getCartData();
+    });
+  }
+
+
+  
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<Map<String,dynamic>?>(
@@ -52,7 +61,7 @@ class _AnimatedListviewWidgetState extends State<AnimatedListviewWidget> {
             final productKey  = products.keys.toList()[i];
       
             final product = products[productKey];
-            
+            print('producttttt: $product');
             return AnimationConfiguration.staggeredList(
               position: i,
               delay: const Duration(milliseconds: 100),
@@ -110,18 +119,20 @@ class _AnimatedListviewWidgetState extends State<AnimatedListviewWidget> {
                                   color: Colors.black,
                                   fontSize: 24,
                                   fontWeight: FontWeight.bold)),
-                                   CustomCartButton(productId: productKey,quantity: product['quantity'],)
+                                  CustomCartButton(productId: productKey, quantity: product['quantity'],)
+                                  //  CustomCartButton(productId: productKey,quantity: product['quantity'],)
                           
                         ],
                        
                       ),
                       trailing: IconButton(
-                          onPressed: ()async {
-                            if(product.containsKey(productKey)){
-                           await  removeFromCart(productKey);
-                            }else{
-                              print('invalid product id : $productKey');
+                          onPressed: () async {
+                            try{
+                              await  removeFromCart(productKey);
+                            }catch(e){
+                              print('Error removing product:$e');
                             }
+                            
                            
                            
                           },

@@ -1,5 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+
+import 'package:funfactory/infrastructure/cart.dart';
 import 'package:funfactory/widget/animated_widgets/animated_cart_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../widget/animated_widgets/animated_listview.dart';
@@ -7,11 +9,14 @@ import '../../../widget/bottomnavbar/bottom_nav_bar.dart';
 import '../widget/checkout_elevatedbutton.dart';
 
 class CartScreen extends StatelessWidget {
-  const CartScreen({super.key});
+   CartScreen({super.key});
 
   @override
+  // List<CartModel> cartItems = [];
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
+    
+   
     return Scaffold(
       appBar: AppBar(
         flexibleSpace: Center(
@@ -51,26 +56,32 @@ class CartScreen extends StatelessWidget {
       body: Column(
         children: [
          Expanded(child: AnimatedListviewWidget(w: w)),
-          const Padding(
+            const Padding(
             padding: EdgeInsets.all(10.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
+          
+              
+              
+              
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      'Total Price',
-                      style: TextStyle(fontSize: 15, color: Colors.grey),
+                    Column(
+                      children: [
+                        Text(
+                          'Total Price',
+                          style: TextStyle(fontSize: 15, color: Colors.grey),
+                        ),
+                        Text(
+                          '₹99',
+                          style: TextStyle(fontSize: 20),
+                        )
+                      ],
                     ),
-                    Text(
-                      '₹5999',
-                      style: TextStyle(fontSize: 20),
-                    )
+                    CheckoutElevatedButtonWidget()
                   ],
-                ),
-                CheckoutElevatedButtonWidget()
-              ],
-            ),
+                )
+              
+            
           )
         ],
       ),

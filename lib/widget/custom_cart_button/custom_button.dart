@@ -1,19 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:funfactory/infrastructure/cart.dart';
-
 class CustomCartButton extends StatefulWidget {
 
 
 
   final String productId;
   final String quantity;
+ 
   
   const CustomCartButton({
     super.key,
     required this.productId, 
-    required this.quantity, 
+    required this.quantity,
      
      });
 
@@ -22,15 +21,16 @@ class CustomCartButton extends StatefulWidget {
 }
 
 class _CustomCartButtonState extends State<CustomCartButton> {
-
-int CartproductQuantity = 0;
+int CartproductQuantity =1  ;
+ 
 @override
   void initState() {
     CartQuantityFromFirebase();
+    CartproductQuantity;
     super.initState();
     
   }
-
+   
   void CartQuantityFromFirebase()async{
    final currentuser = FirebaseAuth.instance.currentUser?.uid;
      final userRef = FirebaseFirestore.instance.collection('users').doc(currentuser);
@@ -43,16 +43,18 @@ int CartproductQuantity = 0;
 
       if(productData.containsKey(widget.productId)){
         final productInfo = productData[widget.productId] as Map<String,dynamic>;
-        
-        final currentProductQuantity = productInfo['quantity'] as int;
+         final currentProductQuantity =  int.tryParse(productInfo['quantity'] as String)?? 0;
+       
         setState(() {
-          CartproductQuantity = currentProductQuantity;
+         CartproductQuantity = currentProductQuantity;
         });
       }
      }else{
       print('Error');
      }
   }
+
+  
 
    increaseQuantity(){
     if(CartproductQuantity < int.parse(widget.quantity)){
@@ -61,7 +63,7 @@ int CartproductQuantity = 0;
 
        });
        updateFirebaseCart(CartproductQuantity);
-       
+     
        
     }
   }
@@ -87,6 +89,7 @@ int CartproductQuantity = 0;
     if(productData.containsKey(widget.productId)){
       final productInfo = productData[widget.productId] as Map<String,dynamic>;
       productInfo['quantity'] = newQuantity;
+      // productInfo['price'] = widget.price;
       await cartDoc.update({'product':productData});
     }
     }else{
@@ -107,7 +110,9 @@ int CartproductQuantity = 0;
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           IconButton(onPressed: decreaseQuantity, icon: const Icon(Icons.remove,color: Colors.white,)),
-           Text(CartproductQuantity.toString(),style: const TextStyle(overflow:TextOverflow.ellipsis),),
+           Container(
+            width: 10,
+            child: Text(CartproductQuantity.toString(),style:  TextStyle(overflow:TextOverflow.ellipsis),)),
           IconButton(onPressed: increaseQuantity, icon: const Icon(Icons.add,color: Colors.white,))
         ],
       ),

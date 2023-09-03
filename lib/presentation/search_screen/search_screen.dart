@@ -50,7 +50,7 @@ class SearchScreen extends StatelessWidget {
        body: StreamBuilder<List<Product>>(
         // future: searchInFirebase(query),
         
-        stream: getProducts(['Boys','Girls'], searchQuery),
+        stream: SearchProducts(searchQuery, ['Boys','Girls']),
         
         builder: (context, snapshot) {
           if(snapshot.connectionState == ConnectionState.waiting){

@@ -4,7 +4,8 @@ class CartModel{
   String? name;
   String?quantity;
   String? productId;
-  int? totalPrice;
+  
+  
   
 
 
@@ -12,8 +13,8 @@ class CartModel{
   CartModel({
     required this.name,
     required this.productId,
-    required this.totalPrice,
     required this.quantity,
+    
     
   });
 
@@ -22,7 +23,7 @@ class CartModel{
     return CartModel(
       name: cartProduct['name'],
       productId: cartProduct['productId'],
-       totalPrice: cartProduct['totalPrice'],
+       
        quantity: cartProduct['quantity'],
        
        );
@@ -32,7 +33,7 @@ class CartModel{
     return{
       'name':name,
       'productId':productId,
-      'totalPrice':totalPrice,
+      
       'quantity':quantity
     };
   }

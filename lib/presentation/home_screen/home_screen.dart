@@ -59,7 +59,7 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Column(
         children: [Expanded(child: StreamBuilder<List<Product>>(
-          stream: getProducts(['Boys','Girls'], textcontroller.text),
+          stream:SearchProducts(textcontroller.text, ['Boys','Girls']),
           builder: (context,snapshot) {
             // final List<Product> products = snapshot.data ?? [];
             return AnimatedGridWidget(w: w, columnCount: columnCount);

@@ -87,7 +87,7 @@ class BottomNavBar extends StatelessWidget {
                       log('<<<,,,,,,,,,,,,>>>');
                       Navigator.of(context)
                           .push(MaterialPageRoute(builder: (ctx) {
-                        return const CartScreen();
+                        return  CartScreen();
                       }));
                       // setState(() {
                       //   selectedIndex = 2;
