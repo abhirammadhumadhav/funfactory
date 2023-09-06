@@ -61,7 +61,7 @@ class _AnimatedListviewWidgetState extends State<AnimatedListviewWidget> {
             final productKey  = products.keys.toList()[i];
       
             final product = products[productKey];
-            print('producttttt: $product');
+            // print('producttttt: $product');
             return AnimationConfiguration.staggeredList(
               position: i,
               delay: const Duration(milliseconds: 100),
@@ -129,8 +129,9 @@ class _AnimatedListviewWidgetState extends State<AnimatedListviewWidget> {
                           onPressed: () async {
                             try{
                               await  removeFromCart(productKey);
+                              // print('productKeyyyy:$productKey');
                             }catch(e){
-                              print('Error removing product:$e');
+                              // print('Error removing product:$e');
                             }
                             
                            

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class ExpandableWidget extends StatefulWidget {
-   ExpandableWidget({super.key,required this.productname});
+   ExpandableWidget({super.key,required this.productname,required this.productPrice});
   String? productname;
+  String? productPrice;
   @override
   ExpandableWidgetState createState() => ExpandableWidgetState();
 }
@@ -93,7 +94,7 @@ class ExpandableWidgetState extends State<ExpandableWidget> {
                                       fontSize: 22,
                                       fontWeight: FontWeight.w400),
                             ),
-                            Text('₹599',
+                            Text('₹${widget.productPrice}',
                             style: TextStyle(color: Colors.yellow,fontSize: 22,fontWeight: FontWeight.bold),)
                                ],
                              ),

@@ -7,6 +7,7 @@ class CustomCartButton extends StatefulWidget {
 
   final String productId;
   final String quantity;
+  // final Function(int,Map<String,dynamic>) onQuantityChange;
  
   
   const CustomCartButton({
@@ -22,14 +23,21 @@ class CustomCartButton extends StatefulWidget {
 
 class _CustomCartButtonState extends State<CustomCartButton> {
 int CartproductQuantity =1  ;
- 
+
 @override
-  void initState() {
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
     CartQuantityFromFirebase();
-    CartproductQuantity;
-    super.initState();
-    
   }
+ 
+// @override
+//   void initState() {
+//     CartQuantityFromFirebase();
+//     CartproductQuantity;
+//     super.initState();
+    
+//   }
    
   void CartQuantityFromFirebase()async{
    final currentuser = FirebaseAuth.instance.currentUser?.uid;
@@ -43,7 +51,7 @@ int CartproductQuantity =1  ;
 
       if(productData.containsKey(widget.productId)){
         final productInfo = productData[widget.productId] as Map<String,dynamic>;
-         final currentProductQuantity =  int.tryParse(productInfo['quantity'] as String)?? 0;
+         final currentProductQuantity =  productInfo['quantity'] as int;
        
         setState(() {
          CartproductQuantity = currentProductQuantity;

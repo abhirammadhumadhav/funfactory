@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class SlidableCardWidget extends StatelessWidget {
    SlidableCardWidget({
     super.key,
@@ -27,6 +28,7 @@ class SlidableCardWidget extends StatelessWidget {
                 List<Widget> cards = [];
 
                 for (int i = 0; i < imageurl.length; i++) {
+                  
                   double currentPageValue = i - _page;
                   bool pageLocation = currentPageValue > 0;
 
@@ -50,7 +52,8 @@ class SlidableCardWidget extends StatelessWidget {
                       alignment: Alignment.center,
                       
                       decoration: BoxDecoration(
-                          color: Colors.teal,
+                          color: const Color.fromARGB(255, 235, 234, 234),
+                          // teal
                           borderRadius: BorderRadius.circular(20),
                           boxShadow: [
                             BoxShadow(

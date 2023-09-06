@@ -17,12 +17,14 @@ class ProductDetailsScreenState extends State<ProductDetailsScreen> {
   List<dynamic> image_urls = [];
   String? productname;
   String? productid;
+  String? price;
   @override
   Widget build(BuildContext context) {
 
     image_urls = widget.data.imageUrl;
     productname = widget.data.name;
     productid = widget.data.id;
+    price = widget.data.price;
     double width = MediaQuery.of(context).size.width;
     PageController pageController;
     pageController = PageController(initialPage: 10);
@@ -46,7 +48,7 @@ class ProductDetailsScreenState extends State<ProductDetailsScreen> {
           ),
            Flexible(fit: FlexFit.loose, child: Padding(
             padding: EdgeInsets.all(8.0),
-            child: ExpandableWidget(productname: productname,),
+            child: ExpandableWidget(productname: productname,productPrice: price),
           )),
            Padding(
             padding: const EdgeInsets.all(8.0),

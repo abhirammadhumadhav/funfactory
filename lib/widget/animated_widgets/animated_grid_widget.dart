@@ -44,6 +44,7 @@ class AnimatedGridWidget extends StatelessWidget {
             return const CircularProgressIndicator();
            }
   productDataList = homescreenState.productlist;
+  // print('productDtaListttttt:$productDataList');
         }
 
                 return Expanded(

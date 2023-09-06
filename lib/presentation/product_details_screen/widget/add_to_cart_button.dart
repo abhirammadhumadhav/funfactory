@@ -51,8 +51,9 @@ class _AddToCartButtonWidgetState extends State<AddToCartButtonWidget> {
                     productDocument.data() as Map<String, dynamic>;
                 final cartProduct = CartModel(
                   name: productData['name'],
-                  productId: widget.productId, // Use the passed productId
-                  // price: productData['price'],
+                  productId: widget.productId,
+                  imageUrl: productData['imageUrl'], // Use the passed productId
+                   price: productData['price'],
                   // totalPrice: productData['totalPrice'],
                   quantity: productData['quantity'],
                 );
@@ -62,7 +63,7 @@ class _AddToCartButtonWidgetState extends State<AddToCartButtonWidget> {
                 // ignore: use_build_context_synchronously
                 ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                   content: Text('Added To The Cart'),
-                  backgroundColor: Colors.green,
+                  backgroundColor: Colors.blue,
                   duration: Duration(seconds: 2),
                 ));
                 //  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context){

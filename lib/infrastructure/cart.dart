@@ -28,9 +28,12 @@ addToCart(CartModel cart) async {
     if(!products.containsKey(cart.productId)){
       products[cart.productId!] = {
         'name':cart.name,
-        'quantity':cart.quantity,
+        'quantity':1,
+        'price':cart.price
         
       };
+    }else{
+      products[cart.productId!]['quantity'] +=1;
     }
     
     await cartDoc.update({'product': products,
@@ -45,7 +48,8 @@ addToCart(CartModel cart) async {
       'product': {
         cart.productId: {
           'name':cart.name,
-          'quantity':cart.quantity,
+          'quantity':1,
+          'price':cart.price
           
         },
         
@@ -82,12 +86,13 @@ Future<Map<String,dynamic>?> getCartData()async{
   final cartSnapshot =await cartDoc.get();
   if(cartSnapshot.exists){
     final cartData = cartSnapshot.data() as Map<String,dynamic>;
+    // print('cartDataaaaa:$cartData');
     // final products = cartData['product'] as Map<String,dynamic>;
-    final productid = cartData['product'].keys.toList();
-    if(productid.isNotEmpty){
+    final productids = cartData['product'].keys.toList();
+    if(productids.isNotEmpty){
       
-      final productDetails = await getProductDetails(productid);
-     
+      final productDetails = await getProductDetails(productids);
+
       return productDetails;
     }
   }else{
